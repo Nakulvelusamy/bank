@@ -60,7 +60,7 @@ def calculate_all(purchase_value, pur_red_pct, down_pct, loan_period, interest_p
 
     annual_interest = loan_amt * (interest_pct / 100)
     total_interest = annual_interest * loan_period
-    final_interest = total_interest * (total_int_red_pct / 100)
+    final_interest = total_interest - (total_interest * (total_int_red_pct / 100))
     final_interest = float(Decimal(final_interest).quantize(Decimal("0.01"), rounding=ROUND_DOWN))
 
     insurance = loan_amt * 0.0032
